@@ -1,0 +1,466 @@
+:root {
+  --bg: #181b24;
+  --surface: #232838;
+  --surface-2: #2c3247;
+  --line: #3a415a;
+  --text: #eceef3;
+  --muted: #a3a9bb;
+  --violet: #a99bff;
+  --coral: #f0616d;
+  --green: #4ed49a;
+  --amber: #f5b942;
+  --blue: #82aaff;
+  --code-green: #c3e88d;
+  --mono: "Courier New", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Header */
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--violet);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.app h1 {
+  font-size: 40px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.status::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.status--open::before {
+  background: var(--green);
+}
+
+/* Cards */
+.card {
+  margin: 28px 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-head h2 {
+  font-size: 22px;
+}
+
+.badge {
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.badge--bug {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.badge--ok {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* The booking widget: combobox */
+.combobox {
+  position: relative;
+  max-width: 360px;
+}
+
+.combobox label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.combobox input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.combobox input::placeholder {
+  color: var(--muted);
+}
+
+.combobox input:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+.combobox ul {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  margin: 6px 0 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.combobox li {
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.combobox li:hover,
+.combobox li:focus-visible {
+  background: var(--violet);
+  color: var(--bg);
+  outline: none;
+}
+
+/* Fare summary */
+.fare-summary {
+  margin-top: 56px;
+}
+
+.fare-summary h3 {
+  margin-bottom: 4px;
+  font-size: 18px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.fare-summary__price {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.fare-summary__status {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.btn {
+  padding: 12px 18px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover:not([aria-disabled="true"]) {
+  border-color: var(--violet);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: var(--violet);
+  color: var(--bg);
+  border-color: var(--violet);
+  font-weight: 700;
+}
+
+.btn--ghost {
+  margin-left: auto;
+  background: transparent;
+  color: var(--muted);
+}
+
+/* Attempts */
+.attempt {
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.attempt > h2 {
+  font-size: 22px;
+}
+
+.sent-back {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.sent-back em {
+  color: var(--amber);
+  font-style: normal;
+}
+
+.tag {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid;
+}
+
+.tag--live {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.tag--recreated {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.tag--recorded {
+  color: var(--muted);
+  border-color: var(--line);
+  font-weight: 400;
+}
+
+.waiting {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+pre.stream {
+  color: var(--code-green);
+}
+
+details summary:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+details summary {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Field-by-field checks */
+.fields {
+  margin: 20px 0;
+}
+
+.fields h3 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.fields ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 16px;
+}
+
+.field--pending {
+  color: var(--muted);
+}
+
+.field--ok {
+  color: var(--green);
+}
+
+.field--bad {
+  color: var(--coral);
+}
+
+/* Result panels */
+.result {
+  margin: 20px 0 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.result h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.result p {
+  margin: 8px 0;
+}
+
+.result--ok {
+  border-color: var(--green);
+}
+
+.result--ok h3 {
+  color: var(--green);
+}
+
+.result--bad {
+  border-color: var(--coral);
+}
+
+.result--bad h3 {
+  color: var(--coral);
+}
+
+.result--pending h3 {
+  color: var(--violet);
+}
+
+.result em {
+  color: var(--amber);
+  font-style: normal;
+}
+
+.retry-note {
+  margin: 16px 0 0;
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.gave-up {
+  color: var(--coral);
+  font-weight: 700;
+}
+
+/* Tree table */
+table {
+  margin: 12px 0;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+th,
+td {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 400;
+  background: var(--surface);
+}
+
+td.ok {
+  color: var(--green);
+  font-weight: 700;
+}
+
+td.bad {
+  color: var(--coral);
+  font-weight: 700;
+}
+
+/* Text for screen readers only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
